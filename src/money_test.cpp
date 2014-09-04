@@ -3,10 +3,8 @@
 
 TEST(MoneyTest,Multiplication) {
 	Dollar five(5);
-	Dollar product = five.times(2);
-	ASSERT_EQ(Dollar(10), product);
-	product = five.times(3);
-	ASSERT_EQ(Dollar(15), product);
+	ASSERT_EQ(Dollar(10), five.times(2));
+	ASSERT_EQ(Dollar(15), five.times(3));
 }
 
 TEST(MoneyTest, Equality) {
