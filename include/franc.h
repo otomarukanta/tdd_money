@@ -1,14 +1,10 @@
-class Franc {
+#pragma onece
+#include "money.h"
+class Franc : public Money{
 public:
-	Franc(int amount) : amount(amount){
+	Franc(int amount) : Money(amount){
 	}
 	const Franc times(int multiplier) {
 		return Franc(amount * multiplier);
 	}
-	bool operator==(const Franc rhs) const {
-		return amount == rhs.amount;
-	}
-private:
-	int amount;
-private:
 };

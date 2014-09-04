@@ -1,14 +1,10 @@
-class Dollar {
+#pragma once
+#include "money.h"
+class Dollar : public Money{
 public:
-	Dollar(int amount) : amount(amount){
+	Dollar(int amount) : Money(amount){
 	}
 	const Dollar times(int multiplier) {
 		return Dollar(amount * multiplier);
 	}
-	bool operator==(const Dollar rhs) const {
-		return amount == rhs.amount;
-	}
-private:
-	int amount;
-private:
 };
