@@ -5,8 +5,8 @@ public:
 	const Dollar times(int multiplier) {
 		return Dollar(amount * multiplier);
 	}
-	bool equals(const Dollar dollar) {
-		return dollar.amount == amount;
+	bool operator==(const Dollar rhs) const {
+		return amount == rhs.amount;
 	}
 	int amount;
 private:
