@@ -8,6 +8,7 @@ public:
 	bool operator==(const Dollar rhs) const {
 		return amount == rhs.amount;
 	}
+private:
 	int amount;
 private:
 };
