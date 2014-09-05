@@ -5,7 +5,7 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/include
 	)
 
-add_executable(money_test money_test.cpp)
+add_executable(money_test money_test.cpp money.cpp)
 target_link_libraries(money_test
 	${GTEST_ROOT}/build/libgtest.a
 	${GTEST_ROOT}/build/libgtest_main.a
