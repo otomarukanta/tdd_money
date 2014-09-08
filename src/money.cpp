@@ -5,7 +5,7 @@
 bool Money::equals(std::shared_ptr<Money> money) {
 // 	std::cout << typeid(*money).name() << std::endl;
 // 	std::cout << typeid(*this).name() << std::endl;
-	return amount == money->amount && 
+	return amount_ == money->amount_ && 
 		(typeid(*this) == typeid(*money));
 }
 std::shared_ptr<Money> Money::dollar(const int amount) {
