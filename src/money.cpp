@@ -7,8 +7,8 @@ bool Money::equals(std::shared_ptr<Money> money) {
 		this->currency() == money->currency();
 }
 std::shared_ptr<Money> Money::dollar(const int amount) {
-	return std::shared_ptr<Money>(new Dollar(amount));
+	return std::shared_ptr<Money>(new Money(amount, "USD"));
 }
 std::shared_ptr<Money> Money::franc(const int amount) {
-	return std::shared_ptr<Money>(new Franc(amount));
+	return std::shared_ptr<Money>(new Money(amount, "CHF"));
 }
