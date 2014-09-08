@@ -23,3 +23,8 @@ TEST(FrancTest, Equality) {
 TEST(MoneyTest, Equality) {
 	ASSERT_FALSE(Money::franc(5)->equals(Money::dollar(5)));
 }
+
+TEST(MoneyTest, Currency) {
+	ASSERT_EQ("USD", Money::dollar(1)->currency());
+	ASSERT_EQ("CHF", Money::franc(1)->currency());
+}
