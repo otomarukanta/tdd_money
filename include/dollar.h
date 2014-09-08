@@ -3,8 +3,9 @@
 class Dollar : public Money{
 public:
 	Dollar(int amount) : Money(amount){
-	}
-	const Dollar times(int multiplier) {
-		return Dollar(amount * multiplier);
+	};
+	virtual ~Dollar() {};
+	std::shared_ptr<Money> times(int multiplier) {
+		return std::shared_ptr<Money>(new Dollar(amount * multiplier));
 	}
 };

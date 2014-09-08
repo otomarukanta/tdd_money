@@ -1,25 +1,25 @@
 #include <gtest/gtest.h>
-#include "dollar.h"
+#include "money.h"
 #include "franc.h"
 
 TEST(DollarTest, Multiplication) {
-	Dollar five(5);
-	ASSERT_TRUE(Dollar(10).equals(five.times(2)));
-	ASSERT_TRUE(Dollar(15).equals(five.times(3)));
+	std::shared_ptr<Money> five = Money::dollar(5);
+	ASSERT_TRUE(Money::dollar(10)->equals(five->times(2)));
+	ASSERT_TRUE(Money::dollar(15)->equals(five->times(3)));
 }
 TEST(FrancTest, Multiplication) {
-	Franc five(5);
-	ASSERT_TRUE(Franc(10).equals(five.times(2)));
-	ASSERT_TRUE(Franc(15).equals(five.times(3)));
+	std::shared_ptr<Money> five = Money::franc(5);
+	ASSERT_TRUE(Money::franc(10)->equals(five->times(2)));
+	ASSERT_TRUE(Money::franc(15)->equals(five->times(3)));
 }
 TEST(DollarTest, Equality) {
-	ASSERT_TRUE (Dollar(5).equals(Dollar(5)));
-	ASSERT_FALSE(Dollar(5).equals(Dollar(6)));
+	ASSERT_TRUE (Money::dollar(5)->equals(Money::dollar(5)));
+	ASSERT_FALSE(Money::dollar(5)->equals(Money::dollar(6)));
 } 
 TEST(FrancTest, Equality) {
-	ASSERT_TRUE (Franc(5).equals(Franc(5)));
-	ASSERT_FALSE(Franc(5).equals(Franc(6)));
+	ASSERT_TRUE (Money::franc(5)->equals(Money::franc(5)));
+	ASSERT_FALSE(Money::franc(5)->equals(Money::franc(6)));
 }
 TEST(MoneyTest, Equality) {
-	ASSERT_FALSE(Franc(5).equals(Dollar(5)));
+	ASSERT_FALSE(Money::franc(5)->equals(Money::dollar(5)));
 }
