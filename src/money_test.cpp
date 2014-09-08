@@ -28,3 +28,6 @@ TEST(MoneyTest, Currency) {
 	ASSERT_EQ("USD", Money::dollar(1)->currency());
 	ASSERT_EQ("CHF", Money::franc(1)->currency());
 }
+TEST(MoneyTest, Different) {
+	ASSERT_TRUE(Money(10, "CHF").equals(Money::franc(10)));
+}
