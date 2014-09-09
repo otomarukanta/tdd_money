@@ -1,13 +1,23 @@
 #pragma once
 #include <iostream>
-class Money {
+#include "expression.h"
+class Money : public Expression{
 public:
-	virtual void m(){};
 	Money(int amount, std::string currency) : amount_(amount), currency_(currency) {};
-// 	virtual ~Money() {};
-	bool equals(std::shared_ptr<Money> money);      
-	static std::shared_ptr<Money> dollar(const int amount);
-	static std::shared_ptr<Money> franc(const int amount);
+	virtual ~Money() {};
+	bool equals(const Money& money) const{
+		return amount_ == money.amount_ && 
+			this->currency_ == money.currency_;
+	} 
+	std::shared_ptr<Expression> plus(Money add) {
+		return std::shared_ptr<Money>(new Money(amount_ + add.amount_, currency_));
+	}
+	static std::shared_ptr<Money> dollar(const int amount) {
+		return std::shared_ptr<Money>(new Money(amount, "USD"));
+	} 
+	static std::shared_ptr<Money> franc(const int amount) {
+		return std::shared_ptr<Money>(new Money(amount, "CHF"));
+	} 
 	std::string currency() {
 		return currency_;
 	}
